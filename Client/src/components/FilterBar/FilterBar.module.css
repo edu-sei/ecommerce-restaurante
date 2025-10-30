@@ -1,0 +1,24 @@
+.filterContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.filterButton {
+  background-color: #e85a00;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.filterButton:hover {
+  background-color: #c84b00;
+}
