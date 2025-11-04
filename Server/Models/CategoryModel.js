@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 exports.GetAllCategories = async () => {
     const [result] = await db.query('CALL GetAllCategories()');
-    return result;
+    return result[0];
 };
 
 exports.GetCategoryById = async (id) => {
@@ -12,15 +12,15 @@ exports.GetCategoryById = async (id) => {
 exports.CreateCategory = async (categoryData) => {
     const { name, description } = categoryData;
     const [result] = await db.query('CALL CreateCategory(?, ?)', [name, description]);
-    return result;
+    return result[0];
 };
 exports.UpdateCategory = async (id, categoryData) => {
     const { name, description } = categoryData;
     const [result] = await db.query('CALL UpdateCategory(?, ?, ?)', [id, name, description]);
-    return result;
+    return result[0];
 };
 
 exports.DeleteCategory = async (id) => {
     const [result] = await db.query('CALL DeleteCategory(?)', [id]);
-    return result;
+    return result[0];
 };
