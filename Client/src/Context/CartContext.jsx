@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     const totalItems = cart.reduce((acc, p) => acc + p.quantity, 0);
     if (totalItems >= limit) {
-      alert(`Max ${limit} items (${people} person/s)`);
+      alert(`Máximo ${limit} artículos (${people} persona/s)`);
       return;
     }
 
@@ -31,9 +31,43 @@ export const CartProvider = ({ children }) => {
     setCart(cart.filter((p) => p.id !== id));
   };
 
+  const increaseQuantity = (id) => {
+    const totalItems = cart.reduce((acc, p) => acc + p.quantity, 0);
+    if (totalItems >= limit) {
+      alert(`Máximo ${limit} artículos (${people} persona/s)`);
+      return;
+    }
+    
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (id) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, people, setPeople }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
+        people,
+        setPeople,
+      }}
     >
       {children}
     </CartContext.Provider>

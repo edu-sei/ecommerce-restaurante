@@ -1,7 +1,8 @@
 import React from "react";
+
 import { ShoppingCart, User, LogOut } from "lucide-react";
-import { useCart } from "../../Context/CartContext";
-import { useAuth } from "../../Context/AuthContext";
+import { useCart } from "context/CartContext";
+import { useAuth } from "context/AuthContext";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 

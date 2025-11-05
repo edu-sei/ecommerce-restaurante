@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../../Context/CartContext";
+import { useCart } from "context/CartContext";
 import styles from "./Checkout.module.css";
 
 function Checkout()  {

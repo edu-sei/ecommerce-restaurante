@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Header from "../../components/Header/Header";
-import FilterBar from "../../components/FilterBar/FilterBar";
-import ProductCard from "../../components/Product/ProductCard";
-import Footer from "../../components/Footer/Footer";
-import styles from "./Menu.module.css";
+import Header from "components/Header/Header";
+import FilterBar from "components/FilterBar/FilterBar";
+import ProductCard from "components/Product/ProductCard";
+import Footer from "components/Footer/Footer";
+import styles from "pages/Menu/Menu.module.css";
 
 function Menu() {
   const [filter, setFilter] = useState("All");
