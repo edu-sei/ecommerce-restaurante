@@ -10,15 +10,20 @@ exports.GetUserById = async (id) => {
     return result[0];
 };
 
-exports.CreateUser = async (userData) => {
-    const { name, email, password } = userData;
-    const [result] = await db.query('CALL CreateUser(?, ?, ?)', [name, email, password]);
+exports.GetUserByEmail = async (email) => {
+    const [result] = await db.query('CALL GetUserByEmail(?)', [email]);
     return result[0];
 };
 
+exports.CreateUser = async (userData) => {
+    const { name, lastname, email, password } = userData;
+    const [result] = await db.query('CALL CreateUser(?, ?, ?, ?)', [name, lastname, email, password]);
+    return result;
+};
+
 exports.UpdateUser = async (id, userData) => {
-    const { name, email, password } = userData;
-    const [result] = await db.query('CALL UpdateUser(?, ?, ?, ?)', [id, name, email, password]);
+    const { name, lastname, email, password } = userData;
+    const [result] = await db.query('CALL UpdateUser(?, ?, ?, ?, ?)', [id, name, lastname, email, password]);
     return result[0];
 };
 
