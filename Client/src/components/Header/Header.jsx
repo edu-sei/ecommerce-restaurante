@@ -1,6 +1,6 @@
 import React from "react";
 import { ShoppingCart } from "lucide-react";
-import { useCart } from "../../Context/CartContext";
+import { useCart } from "context/CartContext";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 

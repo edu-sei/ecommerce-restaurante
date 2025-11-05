@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./Context/CartContext";
-import Home from "./pages/Home/Home";
-import Menu from "./pages/Menu/Menu";
-import Cart from "./pages/Cart/Cart";
-import Login from "./pages/Account/Login/Login";
-import Register from "./pages/Account/Register/Register";
-import Checkout from "./pages/Checkout/Checkout";
+import Home from "pages/Home/Home";
+import Menu from "pages/Menu/Menu";
+import Cart from "pages/Cart/Cart";
+import Login from "pages/Account/Login/Login";
+import Register from "pages/Account/Register/Register";
+import Checkout from "pages/Checkout/Checkout";
 
 function App() {
   return (

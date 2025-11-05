@@ -1,10 +1,10 @@
 import React from "react";
-import { useCart } from "../../Context/CartContext";
+import { useCart } from "context/CartContext";
 import { Link } from "react-router-dom";
 import styles from "./Cart.module.css";
 
 function Cart() {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
   const subtotal = cart.reduce(
     (acc, p) => acc + p.price * p.quantity,
     0
@@ -23,7 +23,12 @@ function Cart() {
                 <img src={item.img} alt={item.name} className={styles.img} />
                 <div>
                   <p>{item.name}</p>
-                  <p>${item.price} x {item.quantity}</p>
+                  <p>${item.price}</p>
+                  <div className={styles.quantityControls}>
+                    <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                    <span>{item.quantity}</span>
+                    <button onClick={() => increaseQuantity(item.id)}>+</button>
+                  </div>
                 </div>
                 <button
                   className={styles.removeBtn}

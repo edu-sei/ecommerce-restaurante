@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Header from "../../components/Header/Header";
-import ProductCard from "../../components/Product/ProductCard";
-import FilterBar from "../../components/FilterBar/FilterBar";
-import Footer from "../../components/Footer/Footer";
-import styles from "./Home.module.css";
-import api from "../../api/api"; // Importa la instancia de axios configurada
+import Header from "components/Header/Header";
+import ProductCard from "components/Product/ProductCard";
+import FilterBar from "components/FilterBar/FilterBar";
+import Footer from "components/Footer/Footer";
+import styles from "pages/Home/Home.module.css";
+import api from "api/api"; 
 
 function Home() {
   const [products, setProducts] = useState([]); 
