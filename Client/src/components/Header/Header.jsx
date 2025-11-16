@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 function Header() {
-  const { cart } = useCart();
+  const { cart, setIsCartOpen } = useCart();
   const { user, logout } = useAuth();
   const totalItems = cart.reduce((acc, p) => acc + p.quantity, 0);
 
@@ -27,12 +27,12 @@ function Header() {
             <User className={styles.icon} />
           </Link>
         )}
-        <Link to="/cart" className={styles.cartContainer}>
+        <button onClick={() => setIsCartOpen(true)} className={styles.cartContainer}>
           <ShoppingCart className={styles.icon} />
           {totalItems > 0 && (
             <span className={styles.badge}>{totalItems}</span>
           )}
-        </Link>
+        </button>
       </div>
     </header>
   );

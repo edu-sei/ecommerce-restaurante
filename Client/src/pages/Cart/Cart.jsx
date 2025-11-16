@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 import styles from "./Cart.module.css";
 
 function Cart() {
-  const { cart, removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
+  const { cart, removeFromCart, increaseQuantity, decreaseQuantity, isCartOpen, setIsCartOpen } = useCart();
   const subtotal = cart.reduce(
     (acc, p) => acc + p.price * p.quantity,
     0
   );
 
+  if (!isCartOpen) return null;
+
   return (
-    <div className={styles.cartContainer}>
+    <div className={styles.overlay} onClick={() => setIsCartOpen(false)}>
+      <div className={styles.cartContainer} onClick={(e) => e.stopPropagation()}>
+        <button className={styles.closeBtn} onClick={() => setIsCartOpen(false)}>×</button>
       <h2 className={styles.title}>Your Cart</h2>
       {cart.length === 0 ? (
         <p className={styles.empty}>Your cart is empty</p>
@@ -47,6 +51,7 @@ function Cart() {
           </div>
         </>
       )}
+      </div>
     </div>
   );
 };

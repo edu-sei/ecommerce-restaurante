@@ -1,11 +1,11 @@
 import React, { createContext, useState, useContext } from "react";
-
 const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [people, setPeople] = useState(1);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const limit = 4 * people;
 
   const addToCart = (product) => {
@@ -67,6 +67,8 @@ export const CartProvider = ({ children }) => {
         decreaseQuantity,
         people,
         setPeople,
+        isCartOpen,
+        setIsCartOpen,
       }}
     >
       {children}

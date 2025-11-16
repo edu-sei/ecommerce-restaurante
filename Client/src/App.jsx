@@ -24,6 +24,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
+          <Cart />
         </Router>
       </CartProvider>
     </AuthProvider>

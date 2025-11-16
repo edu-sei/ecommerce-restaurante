@@ -49,3 +49,31 @@
 .button:hover {
   background-color: #c84b00;
 }
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.quantityControls button {
+  background: #e85a00;
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.quantityControls button:hover {
+  background: #c84b00;
+}
+
+.quantityControls span {
+  font-weight: 600;
+  min-width: 20px;
+  text-align: center;
+}
