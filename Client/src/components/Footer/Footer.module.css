@@ -1,65 +1,116 @@
 .footer {
-  position: sticky;
-  bottom: 0;
-  background-color: #222;
+  background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
   color: white;
-  text-align: center;
-  border-top: 1px solid #333;
-  padding: 15px 10px 5px;
-  z-index: 10;
+  margin-top: auto;
 }
 
-.nav {
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
+}
+
+.section {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 70px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e85a00;
+  margin: 0;
+}
+
+.description {
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  color: #cccccc;
   text-decoration: none;
-  color: #e85a00;
   font-size: 0.9rem;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .link:hover {
-  color: #ff7300;
+  color: #e85a00;
 }
 
-.active {
-  color: #ff7300;
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.text {
-  font-size: 0.75rem;
-  font-weight: 500;
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  font-size: 0.9rem;
 }
 
-/* Íconos Material Symbols */
-.material-symbols-outlined {
-  font-size: 24px;
+.icon {
+  width: 16px;
+  height: 16px;
+  color: #e85a00;
+  flex-shrink: 0;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .footer {
-    padding: 10px 5px;
+.footerBottom {
+  border-top: 1px solid #444;
+  padding: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.footerBottom p {
+  margin: 0;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 20px 30px;
   }
 
-  .nav {
-    height: 60px;
+  .section {
+    text-align: center;
   }
 
-  .material-symbols-outlined {
-    font-size: 22px;
+  .contactItem {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerContent {
+    padding: 30px 16px 20px;
   }
 
-  .text {
-    font-size: 0.7rem;
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .contactItem {
+    font-size: 0.85rem;
   }
 }

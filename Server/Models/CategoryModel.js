@@ -10,13 +10,13 @@ exports.GetCategoryById = async (id) => {
     return result[0];
 };
 exports.CreateCategory = async (categoryData) => {
-    const { name, description } = categoryData;
-    const [result] = await db.query('CALL CreateCategory(?, ?)', [name, description]);
+    const { name, description, img } = categoryData;
+    const [result] = await db.query('CALL CreateCategory(?, ?, ?)', [name, description, img]);
     return result[0];
 };
 exports.UpdateCategory = async (id, categoryData) => {
-    const { name, description } = categoryData;
-    const [result] = await db.query('CALL UpdateCategory(?, ?, ?)', [id, name, description]);
+    const { name, description, img } = categoryData;
+    const [result] = await db.query('CALL UpdateCategory(?, ?, ?, ?)', [id, name, description, img]);
     return result[0];
 };
 
