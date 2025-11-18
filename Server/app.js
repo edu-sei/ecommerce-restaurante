@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
+const { swaggerUi, specs } = require('./config/swagger');
 // const checkAPK = require('./Middleware/apiAuth');
 
 
@@ -18,14 +19,14 @@ api.use(cors({
 
 api.use(express.json());
 // api.use(express.urlencoded({ extended: true })); // Permite leer datos enviados desde formularios (req.body). Convierte x-www-form-urlencoded a un objeto JavaScript.
-
+// Swagger Documentation
+api.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 api.use('/api/Users', UserRoute);
 
 api.use('/api/Category', CategoryRoute);
 
 api.use('/api/Products', ProductRoute);
-
 
 
 module.exports = api;
